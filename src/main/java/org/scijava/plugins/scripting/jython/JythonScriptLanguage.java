@@ -54,12 +54,6 @@ public class JythonScriptLanguage extends AdaptedScriptLanguage {
 	}
 
 	@Override
-	public ScriptEngine getScriptEngine() {
-		// TODO: Consider adapting the wrapped ScriptEngineFactory's ScriptEngine.
-		return new JythonScriptEngine();
-	}
-
-	@Override
 	public Object decode(final Object object) {
 		if (object instanceof PyNone) return null;
 		if (object instanceof PyObject) {

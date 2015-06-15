@@ -75,7 +75,8 @@ public class JythonTest {
 
 		final ScriptLanguage language = scriptService.getLanguageByExtension("py");
 		final ScriptEngine engine = language.getScriptEngine();
-		assertEquals(JythonScriptEngine.class, engine.getClass());
+		final String engineClassName = engine.getClass().getName();
+		assertEquals("org.python.jsr223.PyScriptEngine", engineClassName);
 		engine.put("hello", 17);
 		assertEquals("17", engine.eval("hello").toString());
 		assertEquals("17", engine.get("hello").toString());
